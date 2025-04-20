@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About - Plant Pathology Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      .hero-section {
+        background: linear-gradient(135deg, #1a5f7a 0%, #2c3e50 100%);
+        color: white;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+      .content-section {
+        background: #f8f9fa;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+      .author-card {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+      .author-card:hover {
+        transform: translateY(-5px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/"><i class="fas fa-leaf me-2"></i>Plant Pathology Platform</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/"><i class="fas fa-home me-1"></i>Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/resources"><i class="fas fa-book me-1"></i>Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/about"><i class="fas fa-info-circle me-1"></i>About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="container text-center">
+        <h1 class="display-4 mb-3">About the Project</h1>
+        <p class="lead">Learn more about our mission and the team behind the Plant Pathology Platform</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Project Description -->
+      <div class="content-section">
+        <h2 class="mb-4">Project Description</h2>
+        <p>The Plant Pathology Platform is an innovative solution designed to help farmers and agricultural professionals identify plant diseases quickly and accurately. Our platform uses advanced machine learning algorithms to analyze plant images and provide detailed information about detected diseases.</p>
+        
+        <h3 class="mt-4 mb-3">Key Features</h3>
+        <ul>
+          <li>AI-powered disease detection using deep learning models</li>
+          <li>Comprehensive disease information and treatment recommendations</li>
+          <li>Detailed PDF reports with visual analytics</li>
+          <li>Multi-language support for better accessibility</li>
+          <li>User-friendly interface for easy image upload and analysis</li>
+        </ul>
+      </div>
+
+      <!-- Technical Details -->
+      <div class="content-section">
+        <h2 class="mb-4">Technical Details</h2>
+        <p>Our platform is built using:</p>
+        <ul>
+          <li>Python with Flask for the backend</li>
+          <li>TensorFlow for deep learning models</li>
+          <li>Bootstrap for responsive design</li>
+          <li>ReportLab for PDF generation</li>
+          <li>Matplotlib for data visualization</li>
+        </ul>
+      </div>
+
+      <!-- Research Paper -->
+      <div class="content-section">
+        <h2 class="mb-4">Research Paper</h2>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Plant Disease Detection Using Deep Learning</h5>
+            <p class="card-text">Our research paper explores the implementation of deep learning models for plant disease detection and classification. The paper discusses the methodology, results, and potential applications in agricultural pathology.</p>
+            <div class="d-flex gap-2">
+              <a href="/static/Research paper group 149.pdf" class="btn btn-primary" target="_blank">
+                <i class="fas fa-file-pdf me-1"></i>Download PDF
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Authors Section -->
+      <div class="content-section">
+        <h2 class="mb-4">About the Authors</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="author-card">
+              <h4>Vaibhav Mittal</h4>
+              <p class="text-muted">Machine Learning Developer</p>
+              <p>Computer Science student passionate about applying AI to solve real-world agricultural problems. Developed the core machine learning models and web application.</p>
+              <div class="mt-3">
+                <a href="mailto:vaibmittal2208@gmail.com" class="btn btn-outline-primary me-2">
+                  <i class="fas fa-envelope me-1"></i>Contact
+                </a>
+                <a href="https://github.com/vaibhavmittal01" class="btn btn-outline-dark">
+                  <i class="fab fa-github me-1"></i>GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="author-card">
+              <h4>Amitabh Halder</h4>
+              <p class="text-muted">Backend Developer</p>
+              <p>Experienced backend developer specializing in Python and Flask. Responsible for implementing the server-side logic and API endpoints.</p>
+              <div class="mt-3">
+                <a href="mailto:amitabh.halder@s.amity.edu" class="btn btn-outline-primary me-2">
+                  <i class="fas fa-envelope me-1"></i>Contact
+                </a>
+                <a href="https://github.com/amitabhhalder17" class="btn btn-outline-dark">
+                  <i class="fab fa-github me-1"></i>GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="author-card">
+              <h4>Manan Bhatia</h4>
+              <p class="text-muted">Frontend Developer</p>
+              <p>Creative frontend developer focused on creating intuitive and responsive user interfaces. Implemented the modern UI design and interactive features.</p>
+              <div class="mt-3">
+                <a href="mailto:manan.bhatia2@s.amity.edu" class="btn btn-outline-primary me-2">
+                  <i class="fas fa-envelope me-1"></i>Contact
+                </a>
+                <a href="https://github.com/thisismanan" class="btn btn-outline-dark">
+                  <i class="fab fa-github me-1"></i>GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acknowledgments -->
+      <div class="content-section">
+        <h2 class="mb-4">Acknowledgments</h2>
+        <p>We would like to thank:</p>
+        <ul>
+          <li>Dr. Vasudha Vashisht Ma'am for their guidance and support</li>
+          <li>The open-source community for their valuable tools and libraries</li>
+          <li>Farmers who provided feedback and suggestions</li>
+          <li>All contributors who helped improve the platform</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html> 
