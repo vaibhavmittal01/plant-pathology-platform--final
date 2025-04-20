@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plant Pathology Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      .hero-section {
+        background: linear-gradient(135deg, #1a5f7a 0%, #2c3e50 100%);
+        color: white;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+      }
+      .main-content {
+        background: #f8f9fa;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+      .feature-card {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+      .upload-section {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .result-section {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        margin-top: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-leaf me-2"></i>Plant Pathology Platform</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#"><i class="fas fa-home me-1"></i>Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/resources"><i class="fas fa-book me-1"></i>Resources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about"><i class="fas fa-info-circle me-1"></i>About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="container text-center">
+        <h1 class="display-4 mb-3">Plant Disease Detection Platform</h1>
+        <p class="lead">Advanced AI-powered solution for identifying plant diseases and providing treatment recommendations</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Main Content -->
+      <div class="row">
+        <!-- Left Column - Project Info -->
+        <div class="col-md-4">
+          <div class="main-content">
+            <h3 class="mb-4">About the Project</h3>
+            <p>This platform uses advanced machine learning algorithms to detect and diagnose plant diseases from images. It provides accurate predictions and detailed information about various plant diseases.</p>
+            
+            <div class="mt-4">
+              <h4>Key Features</h4>
+              <div class="feature-card">
+                <i class="fas fa-robot text-primary me-2"></i>
+                <strong>AI-Powered Detection</strong>
+                <p class="mb-0">Advanced machine learning models for accurate disease identification</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-clock text-success me-2"></i>
+                <strong>Real-time Analysis</strong>
+                <p class="mb-0">Quick and efficient disease detection within seconds</p>
+              </div>
+              <div class="feature-card">
+                <i class="fas fa-book-medical text-info me-2"></i>
+                <strong>Detailed Information</strong>
+                <p class="mb-0">Comprehensive disease descriptions and treatment recommendations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column - Upload and Results -->
+        <div class="col-md-8">
+          <div class="upload-section">
+            <h3 class="mb-4">Upload Plant Image</h3>
+            <form action="/" method="post" enctype="multipart/form-data" class="mb-4">
+              <div class="mb-3">
+                <label for="fileInput" class="form-label">Choose a plant image:</label>
+                <input type="file" id="fileInput" name="file" accept=".jpg, .jpeg, .png" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search me-2"></i>Analyze Image
+              </button>
+            </form>
+
+            {% if message %}
+              <div class="alert alert-danger">{{ message }}</div>
+            {% endif %}
+
+            {% if image_path %}
+              <div class="result-section">
+                <div class="text-center">
+                  <img src="{{ image_path }}" alt="Uploaded Image" class="img-fluid rounded mb-4" style="max-width: 80%;">
+                  <div class="d-flex justify-content-center align-items-center mb-3">
+                    <h4 class="me-3 mb-0">Disease:</h4>
+                    <span class="badge bg-warning text-dark fs-5">{{ predicted_label }}</span>
+                  </div>
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title">Description</h5>
+                      <p class="card-text">{{ description }}</p>
+                    </div>
+                  </div>
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title">Growth Stage</h5>
+                      <p class="card-text">{{ stage }}</p>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center gap-3">
+                    <button id="showAccuracy" class="btn btn-success">
+                      <i class="fas fa-chart-line me-2"></i>Show Confidence Score
+                    </button>
+                    {% if pdf_path %}
+                    <a href="{{ url_for('download_report', filename=pdf_path) }}" class="btn btn-primary">
+                      <i class="fas fa-file-pdf me-2"></i>Download PDF Report
+                    </a>
+                    {% endif %}
+                  </div>
+                  <p id="accuracyText" class="mt-3 fw-bold" style="display: none;">
+                    <i class="fas fa-percentage me-2"></i>Confidence: {{ confidence }}%
+                  </p>
+
+                  <!-- Additional Resources Section -->
+                  {% if additional_info %}
+                  <div class="mt-4">
+                    <h4 class="mb-3">Additional Resources</h4>
+                    
+                    <!-- Latest Articles -->
+                    {% if additional_info.articles %}
+                    <div class="card mb-3">
+                      <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-newspaper me-2"></i>Latest Articles</h5>
+                      </div>
+                      <div class="card-body">
+                        {% for article in additional_info.articles %}
+                        <div class="mb-3">
+                          <h6>{{ article.title }}</h6>
+                          <p class="small text-muted">{{ article.description }}</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">Source: {{ article.source }}</small>
+                            <small class="text-muted">Date: {{ article.date }}</small>
+                          </div>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Natural Remedies -->
+                    {% if additional_info.remedies %}
+                    <div class="card mb-3">
+                      <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-leaf me-2"></i>Natural Remedies</h5>
+                      </div>
+                      <div class="card-body">
+                        {% for remedy in additional_info.remedies %}
+                        <div class="mb-3">
+                          <h6>{{ remedy.title }}</h6>
+                          <p class="small">{{ remedy.description }}</p>
+                          <ul class="list-unstyled">
+                            {% for step in remedy.steps %}
+                            <li><i class="fas fa-check-circle text-success me-2"></i>{{ step }}</li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Chemical Treatments -->
+                    {% if additional_info.chemical_treatments %}
+                    <div class="card mb-3">
+                      <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0"><i class="fas fa-flask me-2"></i>Chemical Treatment Options</h5>
+                      </div>
+                      <div class="card-body">
+                        {% for treatment in additional_info.chemical_treatments %}
+                        <div class="mb-3">
+                          <h6>{{ treatment.name }}</h6>
+                          <p class="small">{{ treatment.description }}</p>
+                          <p class="small"><strong>Dosage:</strong> {{ treatment.dosage }}</p>
+                          <div class="alert alert-warning">
+                            <strong>Precautions:</strong>
+                            <ul class="mb-0">
+                              {% for precaution in treatment.precautions %}
+                              <li>{{ precaution }}</li>
+                              {% endfor %}
+                            </ul>
+                          </div>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    {% endif %}
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const accuracyButton = document.getElementById("showAccuracy");
+        const accuracyText = document.getElementById("accuracyText");
+
+        if (accuracyButton) {
+          accuracyButton.addEventListener("click", function() {
+            accuracyText.style.display = "block";
+          });
+        }
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
