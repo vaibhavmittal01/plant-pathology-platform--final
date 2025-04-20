@@ -1,3 +1,4 @@
 # AI-Powered Plant Pathology Platform
 This project is an AI-driven plant disease detection and prediction platform that integrates computer vision and machine learning. Using Convolutional Neural Networks (CNNs), it identifies plant diseases from leaf images with high accuracy. Additionally, it leverages environmental data (e.g., temperature, humidity, soil moisture) using models like Random Forest and LSTM to predict disease outbreaks. The platform supports real-time diagnosis via web/mobile interfaces and is designed to assist farmers in early detection, sustainable treatment, and improved crop health management.
 ![Screenshot 2025-04-02 231410](https://github.com/user-attachments/assets/35aac958-bfe1-4516-893e-68ac61b7a773)
+![Screenshot 2025-04-02 231246](https://github.com/user-attachments/assets/54d63da6-ab0a-4401-821f-55e68efcc80c)
